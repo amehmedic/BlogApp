@@ -1,20 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Blog App</a>
+      <a class="navbar-brand" >Blog App</a>
         <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="logout()">Logout</a>
+            <a class="nav-link" routerLink="/posts">News Feed</a>
           </li>
         </ul>
-        <div class="dropdown" *ngIf="accountService.currentUser$ | async">
-            <a class="dropdown-toggle text-light text-decoration-none">Welcome User</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item">Edit Profile</a>
-                <a class="dropdown-item" (click)="logout()">Logout</a>
-            </div>
+        <div *ngIf="(accountService.currentUser$ | async) as user">
+            <a class="text-primary">Welcome {{user.username}}</a>
+            <button class="btn btn-primary" type="button" (click)="logout()" routerLink="/home">Logout</button>
+            <button class="btn btn-primary" type="button" routerLink="/myprofile">My Profile</button>
         </div>
       </div>
   </nav>

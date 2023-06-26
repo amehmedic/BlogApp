@@ -22,7 +22,7 @@ export class AccountService {
         if(user)
         {
           localStorage.setItem('user', JSON.stringify(user))
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     )
@@ -37,19 +37,20 @@ export class AccountService {
         if(user)
         {
           localStorage.setItem('user', JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     )
   }
 
-  setCurrentUser(user: User)
+  setCurrentUser(user: User | null)
   {
     this.currentUserSource.next(user);
   }
+
   logout()
   {
     localStorage.removeItem('user');
-    this.currentUserSource.next(null);
+    this.setCurrentUser(null);
   }
 }
