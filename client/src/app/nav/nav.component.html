@@ -1,10 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
       <a class="navbar-brand" >Blog App</a>
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/posts">News Feed</a>
-          </li>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ng-container *ngIf="accountService.currentUser$ | async">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/posts">News Feed</a>
+                </li>
+            </ng-container>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/errors">Errors</a>
+            </li>
         </ul>
         <div *ngIf="(accountService.currentUser$ | async) as user">
             <a class="text-primary">Welcome {{user.username}}</a>

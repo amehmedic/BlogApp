@@ -11,8 +11,10 @@ namespace API.Entities
 
         public string UserEmail { get; set; }
 
-        public byte[] PasswordHash {get; set;}
+        public byte[] PasswordHash {get; set; }
         
-        public byte[] PasswordSalt {get; set;}
+        public byte[] PasswordSalt {get; set; }
+
+        public Photo ProfilePicture { get; set; }
     }
 }

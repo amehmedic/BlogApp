@@ -25,10 +25,6 @@ export class LoginComponent implements OnInit {
         {
           this.cancel();
           this.router.navigateByUrl('/posts')
-        },
-        error: error =>
-        {
-          this.toastr.error(error.error)
         }
       }
     )
