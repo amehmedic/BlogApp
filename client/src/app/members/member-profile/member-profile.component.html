@@ -1,0 +1,18 @@
+<div class="row" *ngIf="member">
+    <div class=col-4>
+        <div class="card">
+            <img [src]="member.profilePictureUrl ? member.profilePictureUrl : 'https://i.imgur.com/cChftSS.png'" alt="{{member.userName}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Username: </strong>
+                    <p>{{member.userName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonwrapper" *ngIf="(accountService.currentUser$ | async) as user">
+        <div class="buttonwrapper2" *ngIf="member.userName==user.username">
+            <button class="btn btn-primary" routerLink="/member/edit">Edit Profile</button>
+        </div>
+    </div>
+</div>

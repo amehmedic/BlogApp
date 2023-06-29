@@ -15,9 +15,13 @@ namespace API.Data
             _mapper=mapper;
             _context=context;
         }
-        public async Task<MemberDto> GetMemberAsync(string username)
+        public async Task<MemberDto> GetMemberAsync(string idoruser)
         {
-            return await _context.Users.Where(x=>x.UserName==username).ProjectTo<MemberDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
+            return await _context.Users.Where(x=>x.UserName==idoruser || x.UserId.ToString()==idoruser).ProjectTo<MemberDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
+        }
+        public async Task<MemberDto> GetMemberAsyncId(int id)
+        {
+            return await _context.Users.Where(x=>x.UserId==id).ProjectTo<MemberDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
         }
         public async Task<IEnumerable<MemberDto>> GetMembersAsync()
         {

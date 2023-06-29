@@ -15,6 +15,6 @@ namespace API.Entities
         
         public byte[] PasswordSalt {get; set; }
 
-        public Photo ProfilePicture { get; set; }
+        public string ProfilePictureUrl { get; set; }
     }
 }

@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="column">
+        <button class="btn btn-primary m-2" routerLink="/posts/create">Create New Post</button>
+        <div class="col-2" *ngFor="let post of posts">
+            <app-post-card [post]="post"></app-post-card>
+        </div>
+    </div>
+</div>

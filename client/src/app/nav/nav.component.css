@@ -1,4 +1,10 @@
-.dropdown-toggle, .dropdown-item
+.text
 {
-    cursor: pointer;
+    margin: 5px 5px 5px 5px;
+    color: white;
+    font-size: large
+}
+
+.btn{
+    margin: 5px 5px 5px 5px;
 }

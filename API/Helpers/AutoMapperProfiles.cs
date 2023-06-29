@@ -7,8 +7,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AppUser, MemberDto>().ForMember(dest => dest.ProfilePictureUrl, opt => opt.MapFrom(src=>src.ProfilePicture.Url));
-            CreateMap<Photo, PhotoDto>();
+            CreateMap<AppUser, MemberDto>();
         }
     }
 }

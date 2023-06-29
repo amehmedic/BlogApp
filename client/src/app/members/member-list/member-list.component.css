@@ -1,0 +1,5 @@
+.form-control {
+    width: auto;        /* Allow the width to adjust based on content */
+    max-width: 100%;    /* Limit the width to the container's width if needed */
+    box-sizing: border-box; /* Include padding and border within the width */
+  }

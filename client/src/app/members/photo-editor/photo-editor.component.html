@@ -1,0 +1,21 @@
+<div class="row" *ngIf="member">
+    <div class="col-2">
+        <img [src]="member.profilePictureUrl ? member.profilePictureUrl : 'https://i.imgur.com/cChftSS.png'" alt="photo of user" class="img-thumbnail mb-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h3>Upload avatar</h3>
+        <input type="file" ng2FileSelect [uploader]="uploader" />
+        <div class="col-9 mt-2" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
+            <div>
+                <button type="button" class="btn btn-success btn-s" (click)="uploader?.uploadAll()" [disabled]="!uploader?.getNotUploadedItems()?.length">
+                    <span class="fa fa-upload"></span> Upload
+                </button>
+                <button type="button" class="btn btn-danger btn-s" (click)="uploader?.clearQueue()" [disabled]="!uploader?.queue?.length">
+                    <span class="fa fa-trash"></span> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

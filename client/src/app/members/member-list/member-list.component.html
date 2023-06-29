@@ -1,0 +1,15 @@
+<input class="form-control me-sm-2 mb-2" [(ngModel)]="searchQuery" (input)="filterData()" type="search" placeholder="Search">
+<div *ngIf="searchQuery!=''">
+    <div class="row">
+        <div class="col-2" *ngFor="let member of shownmembers">
+            <app-member-card [member]="member"></app-member-card>
+        </div>
+    </div>
+</div>
+<div *ngIf="searchQuery==''">
+    <div class="row">
+        <div class="col-2" *ngFor="let member of allmembers">
+            <app-member-card [member]="member"></app-member-card>
+        </div>
+    </div>
+</div>

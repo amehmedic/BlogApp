@@ -1,0 +1,12 @@
+.post-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    /* Add more styles as needed */
+  }
+
+  .post-picture {
+    max-width: 100%; /* Set the maximum width of the picture to 100% of its container */
+    height: auto; /* Maintain the aspect ratio of the picture */
+  }
