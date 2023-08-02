@@ -7,10 +7,9 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './home/register/register.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';;
-import { UserprofileComponent } from './userprofile/userprofile.component';
+import { LoginComponent } from './home/login/login.component';
 import { SharedModule } from './_modules/shared.module';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
@@ -34,7 +33,6 @@ import { DeleteProfileDialogComponent } from './dialog/delete-profile-dialog/del
     RegisterComponent,
     HomeComponent,
     LoginComponent,
-    UserprofileComponent,
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,

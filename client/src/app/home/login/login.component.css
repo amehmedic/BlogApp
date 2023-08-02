@@ -1,0 +1,17 @@
+.password-input {
+  position: relative;
+}
+
+.show-password-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.show-password-btn i {
+  font-size: 18px;
+}

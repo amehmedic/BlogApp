@@ -1,5 +1,5 @@
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
-import { AccountService } from '../_services/account.service';
+import { AccountService } from '../../_services/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,11 +11,16 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   @Output() cancelLogin = new EventEmitter();
   model: any = {}
+  showPassword = false;
 
   constructor(private accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
+  }
+
+  toggleShowPassword(): void {
+    this.showPassword = !this.showPassword;
   }
 
   login() {
