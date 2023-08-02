@@ -7,7 +7,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AppUser, MemberDto>();
+            CreateMap<User, MemberDto>();
         }
     }
 }

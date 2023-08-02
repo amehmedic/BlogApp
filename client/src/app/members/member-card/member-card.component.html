@@ -4,8 +4,10 @@
     </div>
     <div class="card-body p-1">
         <h6 class="card-title text-center mb-1">
-            <i class="fa fa-user me-2"></i>
-            {{member.userName}}
+            <div class="icon-and-name">
+                <i class="fa fa-user fa-lg me-2"></i>
+                <span class="user-name">{{member.userName}}</span>
+            </div>
         </h6>
         <p class="card-text text-muted text-center">{{member.userId}}</p>
     </div>

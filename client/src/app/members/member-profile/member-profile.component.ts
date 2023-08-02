@@ -32,4 +32,13 @@ export class MemberProfileComponent implements OnInit {
       next: member => this.member=member
     });
   }
+
+  deleteUser()
+  {
+    if(!this.member)
+    {
+      return;
+    }
+    this.accountService.deleteCurrentUser(this.member.userId)
+  }
 }

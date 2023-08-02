@@ -25,6 +25,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostCardComponent } from './posts/post-card/post-card.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
+import { DeleteProfileDialogComponent } from './dialog/delete-profile-dialog/delete-profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
     PhotoEditorComponent,
     PostListComponent,
     PostCardComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    DeleteProfileDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

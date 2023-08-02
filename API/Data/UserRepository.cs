@@ -27,17 +27,17 @@ namespace API.Data
         {
             return await _context.Users.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
-        public async Task<AppUser> GetUserByUsernameAsync(string username)
+        public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
         }
 
-        public async Task<AppUser> GetUserIdAsync(int id)
+        public async Task<User> GetUserIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);
         }
 
-        public async Task<IEnumerable<AppUser>> GetUsersAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
              return await _context.Users.ToListAsync();
         }
@@ -47,9 +47,21 @@ namespace API.Data
              return await _context.SaveChangesAsync() > 0;
         }
 
-        public void Update(AppUser user)
+        public void Update(User user)
         {
              _context.Entry(user).State=EntityState.Modified;
+        }
+
+        public async Task<bool> DeleteUserAsync(int id)
+        {
+        var user = _context.Users.FirstOrDefault(u => u.UserId==id);
+        if(user == null)
+        {
+            return false;
+        }
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
+        return true;
         }
     }
 }

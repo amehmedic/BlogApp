@@ -18,3 +18,13 @@
 .card {
     cursor: pointer;
 }
+
+.icon-and-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-name {
+    font-size: 16px;
+}

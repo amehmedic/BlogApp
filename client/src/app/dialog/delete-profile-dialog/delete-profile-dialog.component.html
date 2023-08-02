@@ -1,0 +1,12 @@
+<h2 mat-dialog-title class="text-info" align="center">Delete Profile</h2>
+<mat-dialog-content>
+  <div class="alert alert-warning" role="alert" align="center">
+    Are you sure you want to delete your profile?
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  <button mat-button class="btn btn-danger" (click)="onConfirm()" routerLink="/home" cdkFocusInitial style="margin-left: 5px;">
+    Delete
+  </button>
+</mat-dialog-actions>

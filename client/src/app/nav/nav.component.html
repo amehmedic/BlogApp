@@ -13,8 +13,8 @@
         </ul>
         <div class="column" *ngIf="(accountService.currentUser$ | async) as user">
             <span class="text">Welcome {{user.username}}</span>
-            <button class="btn btn-primary" type="button" (click)="logout()" routerLink="/home">Logout</button>
             <button class="btn btn-primary" type="button" routerLink="/members/{{user.username}}">My Profile</button>
+            <button class="btn btn-primary" type="button" (click)="logout()" routerLink="/home">Logout</button>
         </div>
       </div>
   </nav>

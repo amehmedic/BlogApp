@@ -14,7 +14,7 @@ namespace API.Services
         {
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
-        public string CreateToken(AppUser user)
+        public string CreateToken(User user)
         {
             var claims = new List<Claim>
             {

@@ -13,6 +13,7 @@
     <div class="buttonwrapper" *ngIf="(accountService.currentUser$ | async) as user">
         <div class="buttonwrapper2" *ngIf="member.userName==user.username">
             <button class="btn btn-primary" routerLink="/member/edit">Edit Profile</button>
+            <button class="btn btn-danger" type="button" (click)="deleteUser()" style="margin-left: 5px;">Delete Profile</button>
         </div>
     </div>
 </div>

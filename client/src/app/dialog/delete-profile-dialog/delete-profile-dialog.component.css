@@ -1,0 +1,16 @@
+/* Example: Add !important to CSS styles */
+.mat-dialog-title,
+.mat-dialog-content,
+.mat-dialog-actions {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.mat-dialog-content {
+  flex-direction: column !important;
+}
+
+.mat-dialog-actions button {
+  margin: 0 5px !important;
+}

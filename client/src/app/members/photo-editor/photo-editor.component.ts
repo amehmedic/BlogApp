@@ -52,13 +52,6 @@ export class PhotoEditorComponent implements OnInit {
     {
       file.withCredentials = false
     }
-
-    this.uploader.onSuccessItem = (item, response, status, headers) =>
-    {
-      if(response) {
-        this.router.navigateByUrl("members/"+this.member?.userName);
-        }
-      }
   }
 
 }
