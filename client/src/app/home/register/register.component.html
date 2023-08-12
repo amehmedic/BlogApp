@@ -1,18 +1,67 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
-    <h2 class="text-center text-primary">Sign up</h2>
-    <hr>
-    <div class="mb-3">
-      <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username">
-      <div class="password-input">
-        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password">
-        <button type="button" [hidden]="!model.password" (click)="toggleShowPassword()" class="show-password-btn">
-          <i class="fa" [ngClass]="{ 'fa-eye': showPassword, 'fa-eye-slash': !showPassword }"></i>
-        </button>
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off" class="registration-form">
+  <h2 class="text-center text-primary">Sign up</h2>
+  <hr>
+  <div class="input">
+    <div class="username-field">
+      <input type="text" class="form-control" name="username" formControlName="username" placeholder="Username">
+    </div>
+    <div class="validation-messages">
+      <div *ngIf="registerForm.get('username')?.touched">
+        <!-- Validation message for username min length -->
+        <div *ngIf="registerForm.get('username')?.hasError('minLength')" class="text-danger">
+          Username must be at least 3 characters long.
+        </div>
+        <!-- Validation message for username max length -->
+        <div *ngIf="registerForm.get('username')?.hasError('maxLength')" class="text-danger">
+          Username cannot contain more than 16 characters.
+        </div>
+        <!-- Validation message for username invalid characters -->
+        <div *ngIf="registerForm.get('username')?.hasError('invalidCharacters')" class="text-danger">
+          Username can only contain letters and numbers.
+        </div>
       </div>
-      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Email">
     </div>
-    <div class="text-center">
-      <button class="btn btn-success me-2" type="submit">Register</button>
-      <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+  </div>
+  <div class="input">
+    <div class="password-field">
+      <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" name="password" formControlName="password" placeholder="Password">
+      <button type="button" [hidden]="!registerForm.get('password')?.value" (click)="toggleShowPassword()" class="show-password-btn">
+        <i class="fa" [ngClass]="{ 'fa-eye': showPassword, 'fa-eye-slash': !showPassword }"></i>
+      </button>
     </div>
-  </form>
+    <div class="validation-messages">
+      <div *ngIf="registerForm.get('password')?.touched">
+        <!-- Validation message for password length -->
+        <div *ngIf="registerForm.get('password')?.hasError('minLength')" class="text-danger">
+          Password must be at least 8 characters long.
+        </div>
+        <!-- Validation message for password containing numbers -->
+        <div *ngIf="registerForm.get('password')?.hasError('noNumber')" class="text-danger">
+          Password must contain at least one number.
+        </div>
+        <!-- Validation message for password containing a capital letter -->
+        <div *ngIf="registerForm.get('password')?.hasError('noCapitalLetter')" class="text-danger">
+          Password must contain at least one capital letter.
+        </div>
+        <!-- Validation message for password containing a symbol -->
+        <div *ngIf="registerForm.get('password')?.hasError('noSymbol')" class="text-danger">
+          Password must contain at least one symbol.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="input">
+    <div class="email-field">
+      <input type="text" class="form-control" name="email" formControlName="email" placeholder="Email">
+    </div>
+    <div class="validation-messages">
+      <div *ngIf="registerForm.get('email')?.hasError('invalidEmail') && registerForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+  </div>
+  <div class="buttons text-center">
+    <button class="btn btn-success me-2" type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>

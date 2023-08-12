@@ -1,17 +1,19 @@
-.password-input {
+.input {
+  margin-bottom: 15px;
+}
+
+.password-field {
   position: relative;
 }
 
 .show-password-btn {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 5px;
   transform: translateY(-50%);
+  cursor: pointer;
   background-color: transparent;
   border: none;
-  cursor: pointer;
-}
-
-.show-password-btn i {
   font-size: 18px;
+  color: #777;
 }
